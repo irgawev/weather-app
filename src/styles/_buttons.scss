@@ -1,0 +1,72 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.button {
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    padding: 12px 24px;
+    outline: none;
+    border: 1px solid $dark;
+    color: $dark;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    transform-origin: center;
+    background: transparent;
+
+    &:hover {
+        transform: scale(0.96);
+        box-shadow: 0 2px 8px rgba(40, 41, 61, 0.04), 0 16px 24px rgba(96, 97, 112, 0.16);
+        border-color: transparent;
+        background: $cOne;
+    }
+
+    &:focus-visible {
+        box-shadow: 0 0 0 2px #000 !important;
+    }
+
+    &:active {
+        border-color: transparent;
+        transform: scale(0.85);
+        transition: all 0.1s;
+        background: $cOne;
+    }
+
+    &_lg {
+        padding: 28px 24px;
+    }
+
+    &_disabled {
+        pointer-events: none;
+        filter: grayscale(1);
+    }
+
+    &_error_page {
+        font-family: 'Rubik', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        border-radius: 0;
+        border: 4px solid $cOne;
+        color: $cOne;
+
+        &:hover,
+        &:focus-visible {
+            box-shadow: 0 20px 200px #4c4f6c;
+            color: #fff;
+            background: $cOne;
+        }
+    }
+
+    @include mq('tablet') {
+        padding: 12px;
+    }
+}

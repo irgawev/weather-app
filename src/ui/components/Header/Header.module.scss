@@ -1,0 +1,151 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-height: 100vh;
+  width: 500px;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+
+  &__inner {
+    overflow: auto;
+    width: 100%;
+    minheight: 100vh;
+    padding: 32px 48px;
+  }
+
+  hr {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  &__title {
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    margin: 48px 0 0;
+  }
+
+  &__list {
+    overflow: auto;
+    max-height: 200px;
+    list-style-type: none;
+    padding: 0;
+    margin: 32px 0;
+
+    &__item {
+      button {
+        font-family: "Rubik", sans-serif;
+        text-align: left;
+        font-size: 16px;
+        font-weight: 300;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        padding: 16px 0;
+        margin: 0;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        background: transparent;
+        transition: all .2s ease;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      &_active {
+        button {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  &__info {
+    list-style-type: none;
+    padding: 0;
+    margin: 32px 0 0 0;
+
+    &__item {
+      font-size: 16px;
+      font-weight: 300;
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.6);
+      transition: all .2s ease;
+
+      span {
+        color: #fff;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  &__field {
+    width: 80%;
+  }
+
+  &__search {
+    cursor: pointer;
+    position: absolute;
+    top: -33px;
+    right: -48px;
+    width: 85px;
+    height: 85px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.6);
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: #fff;
+    }
+  }
+
+  &_active {
+
+  }
+
+  @include mq('desktop-wide') {
+    width: 350px;
+  }
+
+  @include mq('tablet-mid') {
+    width: 250px;
+
+    &__inner {
+      padding: 24px;
+    }
+
+    &__search {
+      top: -24px;
+      right: -24px;
+      width: 48px;
+      height: 76px;
+    }
+  }
+
+  @include mq('tablet') {
+    position: static;
+    width: 100%;
+    min-height: 30vh;
+
+    &__inner {
+      min-height: 30vh;
+    }
+  }
+}
